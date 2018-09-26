@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table border = 1>
+         <thead>
+            <td>Name</td>
+            <td>Id</td>
+            <td>Address</td>
+            <td>Pincode</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["Name"]}}</td>
+               <td>{{row["Id"]}}</td>
+               <td>{{row["Address"]}}</td>
+               <td>{{row['Pincode']}}</td>	
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <a href = "/">Go back to home page</a>
+      
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+   {%for msg in get_flashed_messages()%}
+      {{ msg }}<br/>
+   {% endfor %}
+	<table border = 1>
+         <thead>
+            <td>Name</td>
+            <td>City</td>
+            <td>Address</td>
+            <td>Pincode</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row.name}}</td>
+               <td>{{row.city}}</td>
+               <td>{{row.addr}}</td>
+               <td>{{row.pin}}</td>	
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <a href = "/">Go back to home page</a>
+   }
+      
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>contacts page
+	</title>
+</head>
+<body>
+	<h2 align=center>contact form</h2>
+	{% with ab = get_flashed_messages() %}
+		{{ab}}
+	{% endwith %}
+	{% for message in form.name.errors %}
+		{{message}}
+	{% endfor %}
+	{% for message in form.email.errors %}
+		{{message}}
+	{% endfor %}
+	<form action="http://127.0.0.1:5000/contact" method="post">
+		<fieldset>
+			<legend>contact form</legend>
+			{{ form.hidden_tag() }}
+			<div>
+				{{form.name.label}} {{form.name}}<br/>
+				{{form.gender.label}} {{form.gender}}<br/>
+				{{form.email.label}} {{form.email}}<br/>
+				{{form.address.label}} {{form.address}}<br/>
+				{{form.age.label}} {{form.age}}<br/>
+				{{form.language.label}} {{form.language}}<br/>
+				{{form.submit}}
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

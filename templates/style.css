@@ -1,0 +1,23 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	background-color: lightblue;
+}
+#bo{
+	background-color: #090909;
+
+}
+#b1{
+	background-color: rgb(255,87,51);
+	height: 100px;
+	width: 100%;
+	margin-top: 30px;
+}
+#b2{
+	background-color: rgb(255, 195, 0);
+	height: 50px;
+}
+#b3{
+	background-color: rgb(251, 139, 51);
+	height: 300px;
+}

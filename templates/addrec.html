@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>adding row</title>
+</head>
+<body>
+	{% for msg in get_flashed_messages() %}
+        {{ msg }}
+	{% endfor %}
+	<form action="{{url_for('addrow')}}" method="post">
+		Name <input type="text" name="name" placeholder=" Enter name *"><br/>
+		City <input type="text" name="city" placeholder=" Enter city *"><br/>
+		Address <textarea name="addr" placeholder=" Enter address *"></textarea><br/>
+		Pincode <input type="text" name="pin" placeholder=" Enter pin *"><br/>
+		<input type="submit" value="submit"/>
+	</form>
+</body>
+</html>
