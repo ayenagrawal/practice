@@ -53,8 +53,12 @@ print(mycursor.rowcount)'''
 # renaming a table
 # mycursor.execute("alter table customers1 rename customers")
 
+# update table data
+'''mycursor.execute("update customers set name='Bhagat Singh' where name='Amit'")
+print(mycursor.rowcount," rows has been changed!")'''
+
 # fetching all rows from a table
-mycursor.execute("select * from customers")
+mycursor.execute("select * from customers limit 2 offset 1")
 myresult = mycursor.fetchall()
 for x in myresult:
     print(x)
