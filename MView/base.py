@@ -19,7 +19,7 @@ class BaseApi(MethodView):
 
 
 view = BaseApi.as_view('base')
-app.add_url_rule("/", defaults={'abc': None}, view_func=view)
+app.add_url_rule("/", defaults={'abc': None}, view_func=view, methods=['GET', 'POST'])
 app.add_url_rule("/<string:abc>", view_func=view, methods=['GET'])
 
 
