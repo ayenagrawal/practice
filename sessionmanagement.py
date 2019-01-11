@@ -1,5 +1,4 @@
-from flask import Flask, url_for, redirect, session, request, abort, flash
-import flask
+from flask import Flask, url_for, redirect, session, request, abort, render_template
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = r'\x81\xf3.m\x12F/8\x9b\xb1U\x84\x9e\xbbb\xa9\xf9R\xe7Q\xa9k\xb1\xb1'
@@ -27,7 +26,7 @@ def index():
         nm = session.get('username')
         return '<b>Welcome user : ' + nm + '<br/><a href="/logout">Click here to logout session</a></b>'
     else:
-        return flask.render_template('pq.html')
+        return render_template('pq.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -40,7 +39,7 @@ def login():
                 session['username'] = request.form['name']
                 return redirect(url_for('index'))
             else:
-                abort(401)
+                return "Invalid Username!!!", 401
         return '''
             <form action="" method="post">
                 Username:<br/>
@@ -54,13 +53,11 @@ def login():
 def logout():
     if 'username' in session:
         session.pop('username', None)
-        return '''
-            Logged out session Successfully<br/>
-            <a href="/login">Click here to login again</a>
-            '''
+        msg = "Logged out session Successfully"
+        return render_template('pq.html', msg=msg)
     else:
-        flash('Wrong turn')
-        return redirect(url_for('index'))
+        msg = "No Active sessions found!!!"
+        return render_template('pq.html', msg=msg)
 
 
 if __name__ == '__main__':

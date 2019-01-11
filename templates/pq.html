@@ -4,13 +4,16 @@
 	<title></title>
 </head>
 <body>
-Login first!!!<br/><a href="/login">Click here to login</a>
-{% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    {{message}}
-                {% endfor %}
-            {% endif %} 
-        {% endwith %}
+    {% if msg %}
+        {{ msg }}<br />
+    {% endif %}
+    <br/><a href="/login">Click here to login</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %} 
+    {% endwith %}
 </body>
 </html>
